@@ -1,11 +1,21 @@
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+const httpServer = http.createServer(app);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'views', 'static')));
 
-app.get('/', (req, res)=>{
-    res.send('Salut')
-});
+const inscription = require('./routes/inscription');
 
-app.listen(3000, ()=>{
-    console.log('connecté');
+app.use(inscription);
+
+const port = process.env.PORT;
+httpServer.listen(port, ()=>{
+    console.log(`Connecté sur le port ${port}`);
 });
