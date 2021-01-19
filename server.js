@@ -12,8 +12,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'views', 'static')));
 
 const inscription = require('./routes/inscription');
+const connexion = require('./routes/connexion');
 
 app.use(inscription);
+app.use(connexion);
 
 const port = process.env.PORT;
 httpServer.listen(port, ()=>{
