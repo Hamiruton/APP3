@@ -10,16 +10,19 @@ const hasher = (mdp)=>{
     });
 }
 
-const compare = (psw, psw_hash, (err, res)=>{
+
+const compare = (psw, psw_hash)=>{
     return new Promise((resolve, reject)=>{
-        if (err) throw reject(err);
-        if (res) {
-            resolve();
-        } else {
-            reject();
-        }
+        bcrypt.compare(psw, psw_hash, (err, res)=>{
+            if (err) throw console.error(err);
+            if (res) {
+                resolve();
+            } else {
+                reject();
+            }
+        });
     });
-});
+}
 
 module.exports = {
     hasher: hasher,
