@@ -23,5 +23,5 @@ const compare = (psw, psw_hash, (err, res)=>{
 
 module.exports = {
     hasher: hasher,
-    compare: compare
+   // compare: compare
 }

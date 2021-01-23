@@ -1,0 +1,90 @@
+<div id="header-title">
+
+</div>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <!-- Navbar brand -->
+    <a class="navbar-brand text-dark font-weight-bold" href="#">D-Way</a>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-dark"></span>
+    </button>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active navItem m-auto mx-3">
+                <a class="nav-link text-center text-dark font-weight-bold mx-3" href="/">Accueil
+
+                </a>
+            </li>
+            <li class="nav-item m-auto">
+                <a class="btn text-white mx-3" data-toggle="modal" data-target="#basicExampleModal" style="background-color: rgb(17, 12, 78);" href="/deamande/">
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Faire une demande</a>
+            </li>
+            <li class="nav-item m-auto navItem">
+                <a style="color: black;" class="nav-link mx-3 text-dark" href="/connexion/">Connexion</a>
+            </li>
+            <li class="nav-item m-auto navItem ">
+                <a class="nav-link mx-3 text-dark" href="/inscription/">S'inscrire</a>
+            </li>
+
+            <!-- Dropdown --
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"></a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>-->
+
+    </div>
+    <!-- Collapsible content -->
+</nav>
+<!--/.Navbar-->
+<!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(8, 8, 36); color: white;">
+          <h5 class="h3 font-weight-bold text-center" id="exampleModalLabel">fiche de demande d'extrait</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body p-3">
+            <form class="mx-auto p-2" method="" action="">
+                <div class="form-group">
+                    <label for="propietaire">Porpiétaire</label>
+                    <select id="propietaire" class="custom-select" name="">
+                        <option value="soi">Pour moi</option>
+                        <option value="autre">Pour autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numeroExtait">Numéro d'acte de Naissance</label>
+                    <input id="numeroExtait" class="form-control" type="text" name="">
+                </div>
+                <div class="form-group">
+                    <label for="villeNaissance">Ville d'établissement</label>
+                    <select id="villeNaissance" class="custom-select" name="">
+                        <option>Text</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button"  class="btn mr-auto text-danger" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn ml-auto" style="background-color: rgb(8, 8, 36); color: white;">Valider</button>
+                </div>
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>

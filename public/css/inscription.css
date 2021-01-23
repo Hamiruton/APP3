@@ -1,0 +1,10 @@
+.btnInscription{
+    background-color: rgb(15, 10, 34);
+    width: 15em;
+    color: white;
+}
+
+.btnInscription:hover{
+    color: white;
+}
+

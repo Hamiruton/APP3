@@ -1,0 +1,72 @@
+/** style pour tous types de screen */
+.navbar{
+    background: rgb(242, 245, 242);
+}
+.navItem:hover a{
+  color: rgb(255, 96, 4);
+}
+.navItem:active a{
+  color: rgb(0, 0, 0);
+}
+
+
+.navbar:after{
+    position:absolute;
+    top:100%;
+    left:0%;
+    width:0;
+    height:3px;
+    background:rgb(255, 96, 4);
+    display:block;
+    content:'';
+    transition: width 0.5s ease-in-out;
+  }
+  .navbar:hover:after{
+    width:100%;
+  }
+  /* End */
+  .design-line {
+    background: rgb(255, 96, 4);
+    width: 10%;
+    height: 3px;
+    animation-name: moveLine;
+    animation-duration: 4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+
+
+/* code annimation */
+@keyframes moveLine {
+  0% {background-color:rgb(255, 96, 4);}
+  50%{background-color:rgb(242, 245, 241); 
+          width: 30%;}
+ 
+  100%{background-color:rgb(32, 128, 8); 
+          width: 60%;}
+
+}/* end css for all screen */
+
+  
+#header-title{
+    height: 1.5em;
+    background: #000;
+}
+
+footer{
+    background: rgb(15, 10, 34);
+}
+
+
+
+/** style pour les screen width > 769px */
+@media screen and (min-width: 769px) {
+
+
+}
+
+/** style pour les screen width < 769px */
+@media screen and (max-width: 769px) {
+
+
+}

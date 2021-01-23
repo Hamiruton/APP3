@@ -3,11 +3,15 @@ const schema = require('../tools/validate').schema_inscription;
 const hasher = require('../tools/hash_psw');
 const Data = require('../models/data');
 
-router.get('/inscrire', (req, res)=>{
-    res.render();
-});
 
-router.post('/inscrire', async (req, res)=>{
+// page d'inscription
+router.get('/inscription', function(req, res, next) {
+    res.render('layouts/inscription', { title: 'D-Way | Inscription' });
+  });
+  
+  
+
+router.post('/inscription', async (req, res)=>{
     const infos = await schema.validateAsync(req.body);
     //hasher le mot de passe
     hasher(infos.psw).then(hash=>{
