@@ -24,7 +24,7 @@ class Data {
     }
 
     static connecter(pseudo, mdp) {
-        let sql = `SELECT * FROM data WHERE pseudo = ? AND confirm_email = true`;
+        let sql = `SELECT * FROM data WHERE pseudo = ? AND accept_email = 1`;
         let insert = [pseudo];
         
         return new Promise((resolve, reject)=>{
@@ -39,6 +39,18 @@ class Data {
                 } else {
                     reject();
                 }
+            });
+        });
+    }
+
+    static accepter_inscription(email) {
+        let sql = `UPDATE data SET accept_email = 1 WHERE email = ?`;
+        let insert = [email];
+
+        return new Promise((resolve, reject)=>{
+            db.query(sql, insert, (err)=>{
+                if (err) throw reject(err);
+                resolve();
             });
         });
     }

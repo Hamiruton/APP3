@@ -14,6 +14,18 @@ const send_token = data =>{
     });
 }
 
+const verify_token = token =>{
+    return new Promise((resolve, reject)=>{
+        try {
+            jwt.verify(token, process.env.SECRET);
+            resolve(jwt.verify(token, process.env.SECRET).data);
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
 module.exports = {
-    send_token: send_token
+    send_token: send_token,
+    verify_token: verify_token
 }

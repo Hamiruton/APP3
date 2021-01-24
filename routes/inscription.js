@@ -3,6 +3,7 @@ const axios = require('axios');
 const schema = require('../tools/validate').schema_inscription;
 const hasher = require('../tools/hash_psw').hasher;
 const send_token = require('../tools/token').send_token;
+const verify_token = require('../tools/token').verify_token
 const Data = require('../models/data');
 
 
@@ -30,9 +31,11 @@ router.post('/inscrire', (req, res)=>{
                         res.redirect(301, '/connexion');
                         console.log(response.data);
                     }).catch(err=>{
+                        // Problème survenu lors de l'interconnexion des 2 serveurs
                         console.error(`Une erreur est survenue: ${err}`);
                     });
                 }).catch(err=>{
+                    // Une erreur est survenue lors du l'envoi du mail
                     console.error(err);
                 });
             }).catch((err)=>{
@@ -40,14 +43,30 @@ router.post('/inscrire', (req, res)=>{
                 console.error(err);
             });
         }).catch(err=>{
+            // Une erreur est survenue lors du hashage du mot de passe
             console.log(err);
         });
     }).catch((err)=>{
+        // Les données saisies par le user ne sont pas conformes au schema de saisie
+        // Nous renvoyons donc le message de l'erreur qui spécifie plus quel est le problème
         console.error(err.details[0].message);
     });
 });
 
-
+router.get('/inscrire/:token_link', (req, res)=>{
+    verify_token(req.params.token_link).then(data_email=>{
+        Data.accepter_inscription(email).then(()=>{
+            // L'email a été vérifié, le user peut désormais se connecter
+            res.redirect(301, '/connexion');
+        }).catch(err=>{
+            // Il y a un problème avec la BD
+            console.error(err);
+        });
+    }).catch(err=>{
+        // Le token a expiré
+        console.error(err);
+    });
+});
 
 
 module.exports = router;
