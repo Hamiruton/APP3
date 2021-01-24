@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const axios = require('axios');
 const schema = require('../tools/validate').schema_inscription;
 const hasher = require('../tools/hash_psw').hasher;
+const send_token = require('../tools/token').send_token;
 const Data = require('../models/data');
 
 router.get('/inscrire', (req, res)=>{
@@ -22,6 +24,20 @@ router.post('/inscrire', (req, res)=>{
             const inscription = new Data(infos_signin);
             inscription.inscrire().then(()=>{
                 // envoyer un mail pour valider l'inscription
+                send_token(infos_signin.email).then(token=>{
+                    const URL = process.env.URL;
+                    axios.post(URL, {
+                        email: infos_signin.email,
+                        token: token
+                    }).then(response=>{
+                        res.redirect(301, '/connexion');
+                        console.log(response.data);
+                    }).catch(err=>{
+                        console.error(`Une erreur est survenue: ${err}`);
+                    });
+                }).catch(err=>{
+                    console.error(err);
+                });
             }).catch((err)=>{
                 // sinon, on signale à l'utilisateur par un message pourquoi son inscription ne fonctionne pas et on lui demande de la refaire
                 console.error(err);
@@ -33,5 +49,8 @@ router.post('/inscrire', (req, res)=>{
         console.error(err.details[0].message);
     });
 });
+
+
+
 
 module.exports = router;
