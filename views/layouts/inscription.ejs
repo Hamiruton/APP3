@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/inscription.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+    <!-- / header -->
+
+    <!-- main -->
+    <main class="mt-md-5 mt-4 mx-auto">
+        <div class="container-fluid mx-auto text-center" style="background: rgb(13, 7, 32);">
+            <div class="col-md-12 mx-auto text-center p-3" >
+                <h3 class="h3 text-center mx-auto white-text"> Inscription</h3>
+            </div>
+        </div>
+        <div class="row container mt-3 mx-auto" >
+            <div class="col-md-6 col-12 d-none d-md-block">
+                <img class="img-fluid" src="/images/bg2.png" alt="">
+            </div>
+            <div class="col-md-6 row mx-auto">
+
+                <div class="col-12 card pt-2 mx-auto">
+
+                <!---
+                    <div class="col-12 imgInscription mx-auto" >
+                        <img class="mx-auto text-center "  src="/images/inscription3.png" alt="">
+                    </div>-->
+                    <form method="post" action="" class="">
+                        <div class="form-group mx-auto col-md-10">
+                            
+                            <label class="text-center" for="pseudo">Entrer un Pseudo</label>
+                            <div class="input-group mx-auto ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="pseudo"> <i class="fa fa-user" ></i> </span>
+                                </div>
+                                <input class="form-control" type="text" name="" placeholder="D-way" aria-label="pseudo " aria-describedby="pseudo">
+                            </div>
+    
+                        </div>
+
+    
+                        <div class="form-group mx-auto col-md-10">
+                            <label class="" for="email">Votre adresse electronique</label>
+                            <div class="input-group mx-auto ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="email"> <i class="fa fa-at" ></i> </span>
+                                </div>
+                                <input class="form-control" type="email" name="" placeholder="d-way@esatic.ci" aria-label="email " aria-describedby="email">
+                            </div>
+                        </div>
+    
+                        <div class="form-group mx-auto col-md-10">
+                            <label class="text-center" for="pseudo">Mot de Passe</label>
+                            <div class="input-group mx-auto inputGroups">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="password"> <i class="fa fa-key" ></i> </span>
+                                </div>
+                                <input class="form-control" type="password" name="" placeholder="0000000" aria-label="password " aria-describedby="password">
+
+                                <div class="input-group-append " style="background-color: white;">
+                                    <span class="input-group-text "> <i class="fa fa-eye" ></i> </span>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="form-group mx-auto col-md-10">
+
+                            <label class="text-center" for="pseudo">Confirmer le Mot de Passe</label>
+                            <div class="input-group mx-auto inputGroups">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="confPassword"> <i class="fa fa-key" ></i> </span>
+                                </div>
+                                <input class="form-control" type="password" name="" placeholder="0000000" aria-label="confPassword " aria-describedby="confPassword">
+                                <div class="input-group-append bg-white">
+                                    <span class="input-group-text"> <i class="fa fa-eye" ></i> </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <input class="btn mx-auto btnInscription" type="submit" value="Envoyer" name="">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- end main -->
+
+    <!-- footer -->
+    <footer class="page-footer font-small pt-4 mt-5">
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+    <!-- end footer -->
+
+
+    <script type="text/javascript" src="/fontawesome/js/all.min.js"></script>
+    <script type="text/javascript" src="/mdbootstrap/js/jquery.min.js" ></script>
+    <script type="text/javascript" src="/mdbootstrap/js/popper.min.js" ></script>
+    <script type="text/javascript" src="/mdbootstrap/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="/mdbootstrap/js/mdb.min.js" ></script>
+
+    <script type="text/javascript" src="/javascript/inscription.js"></script>
+</body>
+</html>

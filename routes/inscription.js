@@ -5,9 +5,6 @@ const hasher = require('../tools/hash_psw').hasher;
 const send_token = require('../tools/token').send_token;
 const Data = require('../models/data');
 
-router.get('/inscrire', (req, res)=>{
-    res.render();
-});
 
 router.post('/inscrire', (req, res)=>{
     const infos_signin = req.body;
