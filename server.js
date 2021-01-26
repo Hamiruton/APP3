@@ -17,7 +17,6 @@ app.use("/mdbootstrap", express.static(__dirname + "/node_modules/mdbootstrap"))
 
 
 const index = require('./routes/index');
-const connexion = require('./routes/connexion');
 const inscription = require('./routes/inscription');
 const connexion = require('./routes/connexion');
 
