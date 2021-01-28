@@ -3,10 +3,23 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const cookie = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const redis = require('redis');
+const redisStore = require('connect-redis')(session);
+const client = redis.createClient();
+
 
 const app = express();
+
+app.use(cookieParser);
+app.use(session({
+  secret: process.env.SECRET,
+  saveUninitialized: false,
+  resave: false,
+  store: new redisStore({host: 'localhost', port: 6379, client: client, ttl:260}),
+  cookie: {maxAge: 60 * 1000 * 14400} // le cookie expirera dans 10 jours si la session n'a pas été déconnectée
+}));
 const httpServer = http.createServer(app);
 app.set('views', path.join(__dirname, 'views'));// precission du repertoire de stockage des templates
 app.set('view engine', 'ejs');// le moteur de template utilisé
@@ -17,13 +30,25 @@ app.use("/mdbootstrap", express.static(__dirname + "/node_modules/mdbootstrap"))
 
 
 const index = require('./routes/index');
+const admin = require('./routes/admin');
 const inscription = require('./routes/inscription');
 const connexion = require('./routes/connexion');
+const demande = require('./routes/demande');
 
+app.use((req, res, next)=>{
+  res.locals.session = req.session;
+  next();
+});
 app.use(index);
+app.use(admin);
 app.use(connexion);
 app.use(inscription);
-app.use(connexion);
+app.use('/demande', (req, res, next)=>{
+  if (req.session.keys) {
+    return demande;
+  }
+  connexion;
+});
 
 
 /* normalizePort permet de rechercher un port valide afin d'eviter des

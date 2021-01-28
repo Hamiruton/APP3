@@ -6,6 +6,12 @@ const send_token = require('../tools/token').send_token;
 const verify_token = require('../tools/token').verify_token
 const Data = require('../models/data');
 
+router.get('/inscrire', (req, res)=>{
+    if (req.session.keys) {
+        return res.redirect(301, '/');
+    }
+    res.render('#');
+});
 
 router.post('/inscrire', (req, res)=>{
     const infos_signin = req.body;
