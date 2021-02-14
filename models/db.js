@@ -9,8 +9,8 @@ const con = mysql.createConnection({
 });
 
 con.connect(err=>{
-    if (err) throw err;
-    console.log('Connected');
+    if (err) throw console.error(err);;
+    console.log('Connecté à la BD');
 });
 
 con.query = util.promisify(con.query);

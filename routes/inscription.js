@@ -29,8 +29,8 @@ router.post('/inscrire', (req, res)=>{
             inscription.inscrire().then(()=>{
                 // envoyer un mail pour valider l'inscription
                 send_token(infos_signin.email).then(token=>{
-                    const URL = process.env.URL;
-                    axios.post(URL, {
+                    const URL_MAIL = process.env.URL_MAIL;
+                    axios.post(URL_MAIL, {
                         email: infos_signin.email,
                         token: token
                     }).then(response=>{

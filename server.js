@@ -3,22 +3,26 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const redis = require('redis');
 const redisStore = require('connect-redis')(session);
-const client = redis.createClient();
+const client = redis.createClient({
+  host: 'localhost',
+  port: 6379
+});
 
+client.on('connect', ()=>{
+  console.log('Connecté à Redis');
+});
 
 const app = express();
 
-app.use(cookieParser);
 app.use(session({
   secret: process.env.SECRET,
   saveUninitialized: false,
   resave: false,
-  store: new redisStore({host: 'localhost', port: 6379, client: client, ttl:260}),
-  cookie: {maxAge: 60 * 1000 * 14400} // le cookie expirera dans 10 jours si la session n'a pas été déconnectée
+  store: new redisStore({client: client}),
+  cookie: {maxAge: 60 * 1000 * 60 * 24} // le cookie expirera dans 1 jour si la session n'a pas été déconnectée
 }));
 const httpServer = http.createServer(app);
 app.set('views', path.join(__dirname, 'views'));// precission du repertoire de stockage des templates
@@ -95,7 +99,7 @@ const normalizePort = val => {
   httpServer.on('listening', () => {
     const address = httpServer.address();
     const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
-    console.log('connecté sur le port : ' + bind);
+    console.log('connecté sur le ' + bind);
   });
   
   httpServer.listen(port);
