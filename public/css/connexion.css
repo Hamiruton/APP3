@@ -1,14 +1,24 @@
-body{
-    background: rgb(180, 176, 176);
+body {}
+
+input {
+    width: 100%;
 }
 
-.btnInscription{
+.btnInscription {
     background-color: rgb(15, 10, 34);
-    width: 15em;
+    width: 100%;
     color: white;
 }
 
-.btnInscription:hover{
+.btnInscription:hover {
     color: white;
 }
 
+.field-icon {
+    float: right;
+    margin-left: -28px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 9999;
+    cursor: pointer;
+}

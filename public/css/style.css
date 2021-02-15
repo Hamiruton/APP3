@@ -1,31 +1,64 @@
 /** style pour tous types de screen */
-.navbar{
-    background: rgb(242, 245, 242);
-}
-.navItem:hover a{
-  color: rgb(255, 96, 4);
-}
-.navItem:active a{
-  color: rgb(0, 0, 0);
+
+.navbar {
+    background: rgb(242, 247, 242);
+    color: white;
 }
 
+.navItem:hover a {
+    color: rgb(255, 96, 4);
+}
 
-.navbar:after{
-    position:absolute;
-    top:100%;
-    left:0%;
-    width:0;
-    height:3px;
-    background:rgb(255, 96, 4);
-    display:block;
-    content:'';
+.navItem:active a {
+    color: rgb(0, 0, 0);
+}
+
+.navbar:after {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 0;
+    height: 3px;
+    background: rgb(255, 96, 4);
+    display: block;
+    content: '';
     transition: width 0.5s ease-in-out;
-  }
-  .navbar:hover:after{
-    width:100%;
-  }
-  /* End */
-  .design-line {
+}
+
+.navbar:hover:after {
+    width: 100%;
+}
+
+.ol-fisrt1::after {
+    position: absolute;
+    top: 1.1em;
+    width: 100%;
+    left: 11.7em;
+    height: 3px;
+    background: rgb(255, 96, 4);
+    display: block;
+    content: '';
+    transition: width 0.5s ease-in-out;
+}
+
+.ol-fisrt2::after {
+    position: absolute;
+    top: 100%;
+    top: 1.1em;
+    width: 100%;
+    left: 11.7em;
+    height: 3px;
+    background: rgb(255, 96, 4);
+    display: block;
+    content: '';
+    transition: width 0.5s ease-in-out;
+    z-index: 0;
+}
+
+
+/* End */
+
+.design-line {
     background: rgb(255, 96, 4);
     width: 10%;
     height: 3px;
@@ -33,40 +66,53 @@
     animation-duration: 4s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
-  }
+}
+
+.ol-fisrt p {
+    z-index: auto;
+}
+
+.main-div .card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 1.3s ease-in-out;
+}
 
 
 /* code annimation */
+
 @keyframes moveLine {
-  0% {background-color:rgb(255, 96, 4);}
-  50%{background-color:rgb(242, 245, 241); 
-          width: 30%;}
- 
-  100%{background-color:rgb(32, 128, 8); 
-          width: 60%;}
+    0% {
+        background-color: rgb(255, 96, 4);
+    }
+    50% {
+        background-color: rgb(242, 245, 241);
+        width: 30%;
+    }
+    100% {
+        background-color: rgb(32, 128, 8);
+        width: 6rgb(206, 75, 0)
+    }
+}
 
-}/* end css for all screen */
 
-  
-#header-title{
+/* end css for all screen */
+
+#header-title {
     height: 1.5em;
-    background: #000;
+    background: rgb(173, 30, 5);
 }
 
-footer{
-    background: rgb(15, 10, 34);
+footer {
+    background: rgb(13, 13, 39);
 }
-
 
 
 /** style pour les screen width > 769px */
-@media screen and (min-width: 769px) {
 
+@media screen and (min-width: 769px) {}
 
-}
 
 /** style pour les screen width < 769px */
-@media screen and (max-width: 769px) {
 
-
-}
+@media screen and (max-width: 769px) {}
