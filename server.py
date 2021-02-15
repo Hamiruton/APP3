@@ -1,3 +1,12 @@
+from server_py import create_app
+
+app = create_app()
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+"""
 from flask import Flask, render_template, request
 import json
 from tools import send_mail
@@ -33,3 +42,5 @@ def verify_db():
 
 if __name__ == "__main__":
     app.run()
+
+"""

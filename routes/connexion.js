@@ -5,7 +5,7 @@ router.get('/connexion', (req, res)=>{
     if (req.session.keys) {
         return res.redirect(301, '/');
     }
-    res.render('#');
+    res.render('layouts/connexion', { title: 'D-Way - Connexion' });
 });
 
 router.post('/connexion', (req, res)=>{
