@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/inscription.css">
+        <link rel="stylesheet" href="/css/inscription.css">
 </head>
+
 <body>
     <!-- header -->
     <header>
@@ -14,11 +16,11 @@
     <!-- main -->
     <main class="mt-md-5 mt-4 mx-auto">
         <div class="container-fluid mx-auto text-center" style="background: rgb(13, 7, 32);">
-            <div class="col-md-12 mx-auto text-center p-3" >
+            <div class="col-md-12 mx-auto text-center p-3">
                 <h3 class="h3 text-center mx-auto white-text"> Inscription</h3>
             </div>
         </div>
-        <div class="row container mt-3 mx-auto" >
+        <div class="row container mt-3 mx-auto">
             <div class="col-md-6 col-12 d-none d-md-block">
                 <img class="img-fluid" src="/images/bg2.png" alt="">
             </div>
@@ -26,13 +28,13 @@
 
                 <div class="col-12 card pt-2 mx-auto">
 
-                <!---
+                    <!---
                     <div class="col-12 imgInscription mx-auto" >
                         <img class="mx-auto text-center "  src="/images/inscription3.png" alt="">
                     </div>-->
                     <form method="post" action="" class="">
                         <div class="form-group mx-auto col-md-10">
-                            
+
                             <label class="text-center" for="pseudo">Entrer un Pseudo</label>
                             <div class="input-group mx-auto ">
                                 <div class="input-group-prepend">
@@ -40,10 +42,10 @@
                                 </div>
                                 <input class="form-control" type="text" name="" placeholder="D-way" aria-label="pseudo " aria-describedby="pseudo">
                             </div>
-    
+
                         </div>
 
-    
+
                         <div class="form-group mx-auto col-md-10">
                             <label class="" for="email">Votre adresse electronique</label>
                             <div class="input-group mx-auto ">
@@ -53,7 +55,16 @@
                                 <input class="form-control" type="email" name="" placeholder="d-way@esatic.ci" aria-label="email " aria-describedby="email">
                             </div>
                         </div>
-    
+                        <div class="form-group mx-auto col-md-10">
+                            <label class="" for="email">Votre Numéro d'acte de naissance</label>
+                            <div class="input-group mx-auto ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="email"> <i class="fas fa-sort-numeric-up-alt"></i> </span>
+                                </div>
+                                <input class="form-control" type="text" name="" placeholder="111-01/01/2021-ville" aria-label="email " aria-describedby="email">
+                            </div>
+                        </div>
+
                         <div class="form-group mx-auto col-md-10">
                             <label class="text-center" for="pseudo">Mot de Passe</label>
                             <div class="input-group mx-auto inputGroups">
@@ -67,8 +78,8 @@
                                 </div>
                             </div>
                         </div>
-    
-    
+
+
                         <div class="form-group mx-auto col-md-10">
 
                             <label class="text-center" for="pseudo">Confirmer le Mot de Passe</label>
@@ -103,11 +114,12 @@
 
 
     <script type="text/javascript" src="/fontawesome/js/all.min.js"></script>
-    <script type="text/javascript" src="/mdbootstrap/js/jquery.min.js" ></script>
-    <script type="text/javascript" src="/mdbootstrap/js/popper.min.js" ></script>
-    <script type="text/javascript" src="/mdbootstrap/js/bootstrap.min.js" ></script>
-    <script type="text/javascript" src="/mdbootstrap/js/mdb.min.js" ></script>
+    <script type="text/javascript" src="/mdbootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/mdbootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="/mdbootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/mdbootstrap/js/mdb.min.js"></script>
 
     <script type="text/javascript" src="/javascript/inscription.js"></script>
 </body>
+
 </html>
