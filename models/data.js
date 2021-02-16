@@ -44,6 +44,26 @@ class Data {
         });
     }
     
+/*
+    static admin(pseudo, mdp) {
+        // cette méthode vérifie si les infos entrées sont celles d'un admin
+        let sql = `SELECT * FROM admin WHERE pseudo = ?`; 
+        let insert = [pseudo];
+
+        return new Promise((resolve, reject)=>{
+            db.query(sql, insert, (err, results)=>{
+                if (err) throw err;
+                if (results[0]) {
+                    compareMdp(mdp, results[0].psw).then(()=>{
+                        resolve()
+                    }).catch(()=>{
+                        reject();
+                    });
+                }
+            });
+        });
+    }
+    */
 
     static accepter_inscription(email) {
         let sql = `UPDATE data SET accept_email = 1 WHERE email = ?`;

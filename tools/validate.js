@@ -6,7 +6,7 @@ const schema_inscription = joi.object({
     acte_nais: joi.number().required(),
     date_etab: joi.date().required(),
     ville_nais: joi.string().required(),
-    psw: joi.string().pattern(new RegExp('')).required(),
+    psw: joi.string().pattern(new RegExp('^[a-zA-Z0-9çéèêëïîÉÈÊËÎÏ_@#-]+$')).required(),
     confirm_psw: joi.ref('psw')
 })
 

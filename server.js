@@ -37,7 +37,7 @@ const index = require('./routes/index');
 const admin = require('./routes/admin');
 const inscription = require('./routes/inscription');
 const connexion = require('./routes/connexion');
-const demande = require('./routes/demande');
+const deconnexion = require('./routes/deconnexion');
 const paiement = require('./routes/paiement');
 
 app.use((req, res, next) => {
@@ -47,13 +47,8 @@ app.use((req, res, next) => {
 app.use(index);
 app.use(admin);
 app.use(connexion);
+app.use(deconnexion);
 app.use(inscription);
-app.use('/demande', (req, res, next) => {
-    if (req.session.keys) {
-        return demande;
-    }
-    connexion;
-});
 app.use(paiement);
 
 /* normalizePort permet de rechercher un port valide afin d'eviter des

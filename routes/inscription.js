@@ -10,7 +10,7 @@ router.get('/inscription', (req, res)=>{
     if (req.session.keys) {
         return res.redirect(301, '/');
     }
-    res.render('layouts/inscription', { title: 'D-Way - Inscription' });
+    res.render('layouts/inscription', { title: 'D-Way - Inscription', session: '' });
 });
 
 router.post('/inscrire', (req, res)=>{
@@ -42,15 +42,15 @@ router.post('/inscrire', (req, res)=>{
                     });
                 }).catch(err=>{
                     // Une erreur est survenue lors du l'envoi du mail
-                    console.error(err);
+                    console.error('Erreur au niveau de la promesse send_token: ' + err);
                 });
             }).catch((err)=>{
                 // sinon, on signale à l'utilisateur par un message pourquoi son inscription ne fonctionne pas et on lui demande de la refaire
-                console.error(err);
+                console.error('Erreur au niveau de la promesse inscrire: ' + err);
             });
         }).catch(err=>{
             // Une erreur est survenue lors du hashage du mot de passe
-            console.log(err);
+            console.log('Erreur au niveau de la promesse hasher: ' + err);
         });
     }).catch((err)=>{
         // Les données saisies par le user ne sont pas conformes au schema de saisie

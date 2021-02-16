@@ -20,16 +20,24 @@
                 </a>
             </li>
             <li class="nav-item m-auto">
-                <a class="btn text-white mx-3" data-toggle="modal" data-target="#basicExampleModal" style="background-color: rgb(17, 12, 78);" href="/deamande/">
+                <a class="btn text-white mx-3" data-toggle="modal" data-target="#basicExampleModal" style="background-color: rgb(17, 12, 78);" href="/demande">
                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Faire une demande</a>
             </li>
-            <li class="nav-item m-auto navItem">
-                <a style="color: black;" class="nav-link mx-3 text-dark" href="/connexion/">Connexion</a>
-            </li>
-            <li class="nav-item m-auto navItem ">
-                <a class="nav-link mx-3 text-dark" href="/inscription/">S'inscrire</a>
-            </li>
-
+            <% if(session) { %>
+                <li class="nav-item m-auto navItem">
+                    <a style="color: black;" class="nav-link mx-3 text-dark" href="/deconnexion">Déconnexion</a>
+                </li>
+                <li class="nav-item m-auto navItem">
+                    <a style="color: black;" class="nav-link mx-3 text-dark" href="/paiement">Paiement</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item m-auto navItem">
+                    <a style="color: black;" class="nav-link mx-3 text-dark" href="/connexion">Connexion</a>
+                </li>
+                <li class="nav-item m-auto navItem ">
+                    <a class="nav-link mx-3 text-dark" href="/inscription">S'inscrire</a>
+                </li>
+            <% } %>
             <!-- Dropdown --
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
