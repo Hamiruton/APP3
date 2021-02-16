@@ -2,11 +2,12 @@ const joi = require('joi');
 
 const schema_inscription = joi.object({
     pseudo: joi.string().max(30).required(),
-    num_acte_nais: joi.string().max(30),
-    psw: joi.string().pattern(new RegExp('')).required(),
-    confirm_psw: joi.ref('psw'),
+    email: joi.string().email().required(),
+    acte_nais: joi.number().required(),
+    date_etab: joi.date().required(),
     ville_nais: joi.string().required(),
-    email: joi.string().email().required()
+    psw: joi.string().pattern(new RegExp('')).required(),
+    confirm_psw: joi.ref('psw')
 })
 
 module.exports = {
