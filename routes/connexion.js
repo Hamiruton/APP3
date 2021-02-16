@@ -2,9 +2,6 @@ const router = require('express').Router();
 const Data = require('../models/data');
 
 router.get('/connexion', (req, res)=>{
-    if (req.session.keys) {
-        res.redirect(301, '/');
-    }
     res.render('layouts/connexion', { title: 'D-Way - Connexion', session: '' });
 });
 
